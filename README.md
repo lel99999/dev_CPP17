@@ -16,26 +16,27 @@ git<br/>
 $sudo apt install git
 
 cmake:<br/>
-https://www.tecrobust.com/install-cmake-ubuntu/$sudo snap install cmake --classic
+https://www.tecrobust.com/install-cmake-ubuntu/<br/>
+$sudo snap install cmake --classic
 
 boost:<br/>
 https://www.osetc.com/en/how-to-install-boost-on-ubuntu-16-04-18-04-linux.html
 
-$sudo apt install libboost-dev
-$sudo apt install libboost-all-dev
+$sudo apt install libboost-dev<br/>
+$sudo apt install libboost-all-dev<br/>
 
 GTest:<br/>
-$sudo apt install googletest
+$sudo apt install googletest<br/>
 
 GMock:<br/>
-$sudo apt install google-mock
+$sudo apt install google-mock<br/>
 
 QT5:<br/>
 https://wiki.qt.io/Install_Qt_5_on_Ubuntuhttps://lucidar.me/en/dev-c-cpp/how-to-install-qt-creator-on-ubuntu-18-04/
 
-$sudo apt install build-essential
-$sudo apt install qtcreator
-$sudo apt install qt5-default
+$sudo apt install build-essential<br/>
+$sudo apt install qtcreator<br/>
+$sudo apt install qt5-default<br/>
 
 cucumber-cpp:<br/>
 https://github.com/cucumber/cucumber-cpp
