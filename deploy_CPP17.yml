@@ -1,0 +1,50 @@
+- hosts: CPP17Dev
+  vars:
+#   custom_repo: true
+#   deploy_iptables: true
+#   envir: prod
+# vars_files:
+#   - ~/RHACCOUNT
+  become: yes
+  become_method: sudo
+
+  pre_tasks:
+      shell: "/usr/bin/subscription-manager repos --list-enabled"
+      register: enabled_repos
+    - debug:
+        msg: "RHEL Enabled Repos: {{ enabled_repos }}"
+  tasks:
+#   - name: Install X Windows
+#     yum:
+#       name: "@X Window System"
+#       state: present
+
+    - name: Install Development Tools
+#     shell:  yum groupinstall "Development Tools" -y
+      yum:
+        name: "@Development tools"
+        state: present
+#   - name: Install JAVA OpenJDK 1.8
+#     shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
+
+  roles:
+    - epel7
+#   - emacs7
+    - openjdk1.8
+    - odbc7
+#   - postgresql-client
+#   - devtools7
+#   - python2RH7
+#   - python3RH7
+#   - pyenvRH7
+
+  post_tasks:
+#   - name: register mime types
+#     shell: update-mime-database /usr/share/mime/packages/
+
+#   - name: remove RHEL7.5
+#     command:  "/usr/bin/subscription-manager remove --all"
+#   - name: unregister RHEL7.5
+#     command:  "/usr/bin/subscription-manager unregister"
+#   - name: clean RHEL7.5
+#     command:  "/usr/bin/subscription-manager clean"7
