@@ -2,8 +2,8 @@
 C++ 17 Features and Standards Review
 
 ###Setup for Ubuntu:<br/>
-`$sudo add-apt-repository ppa:jonathonf/gcc-7.1`
-`$sudo apt update$sudo apt install gcc-7 g++-7`
+`$sudo add-apt-repository ppa:jonathonf/gcc-7.1`<br/>
+`$sudo apt update$sudo apt install gcc-7 g++-7`<br/>
 
 Add GDB 7.11.1<br/>
 https://github.com/apache/incubator-teaclave-sgx-sdk/wiki/Setup-gdb-7.11-on-Ubuntu-18.04-for-VSCode---sgx-gdb-remote-debugging<br/>
