@@ -1,0 +1,27 @@
+// Smart pointer notes
+
+/*
+
+ - auto_ptr   // Introduced in C++11, helps release heap memory automatically when it goes out of scope
+              // Due to following reasons, auto_ptr is deprecated in C++11 and onward:
+              - an auto_ptr object can't be stored in an STL container
+              - the auto_ptr copy constructor will remove ownership from the original source, that is, auto_ptr
+              - the auto_ptr copy assignment operator wil remove ownership from the original source, which is auto_ptr
+              - the original intention of copy constructor and assignment operators are violated by auto_ptr as the auto_ptr copy constructor and assignment
+                operators will remove the ownership of the source object from the right-hand side object and assign the ownership to the left-hand side object
+
+ - unique_ptr // Due to how auto_ptr transfers ownership from one auto_ptr instance to another, it was deprecated and unique_ptr was introduced as its replacement
+              // works in exactly the same way as auto_ptr, except it addresses the issues introduced by auto_ptr, hence is a replacement starting from C++11
+              // The unique_ptr allows only one smart pointer to exclusively own a heap-allocated object.  The ownership transfer from one unique_ptr instance
+              // to another can be one only via the std::move() function
+
+ - shared_ptr // helps multiple shared smart pointers reference the same object and takes care of memory managementr
+ - weak_ptr   // helps resolve memory leak issues that arise due to use of shared-ptr
+
+Other types of smart pointers to examine
+ - owner_less                  // helps compare two or more smart pointers if they share the same raw pointed object
+ - enable_shared_from_this     // helps get a smart pointer of the this pointer
+ - bad_weak_ptr                // is an exception class that implies that shared_ptr was created using an invalid smart pointer
+ - default_delete              // refers to the default destruction policy used by unique_ptr, which invokes the delete statement, while partial specialization for array types that use delete[] is also supported
+
+*/
