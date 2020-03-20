@@ -21,6 +21,7 @@
         name: build-essential
         state: present
         cache_valid_time: 1800
+        force_apt_get: true
 
     - name: Get QT
       get_url:
