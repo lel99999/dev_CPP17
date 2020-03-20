@@ -18,14 +18,13 @@
 
     - name: Install QT 5.14.x prerequisite build-essential
       apt:
-        name: {{ item }} 
+        name: 
+          - build-essential
+          - libfontconfig1
+          - mesa-common-dev
         state: present
         cache_valid_time: 1800
         force_apt_get: true
-      with_items:
-        - build-essential
-        - libfontconfig1
-        - mesa-common-dev
 
     - name: Get QT 5.14.1
       get_url:

@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
     cpp17dev.vm.provision "main", type: "ansible" do |ansible|
 #     ansible.playbook = "deploy_CPP17Config.yml"
 #     ansible.playbook = "deploy_CPP17Test.yml"
-      ansible.playbook = "deploy_CPP17Test.yml"
+      ansible.playbook = "deploy_CPP17.yml"
       ansible.inventory_path = "vagrant_hosts"
       #ansible.tags = ansible_tags
       #ansible.verbose = ansible_verbosity
