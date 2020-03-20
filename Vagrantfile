@@ -13,7 +13,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "CPP17Dev" do |cpp17dev|
 #   cpp17dev.vm.box = "clouddood/RH7.5_baserepo"
-    cpp17dev.vm.box = "bento/ubntu-19.04"
+#   cpp17dev.vm.box = "bento/ubuntu-19.04"
+    cpp17dev.vm.box = "bento/ubuntu-19.10"
     cpp17dev.vm.hostname = "CPP17Dev"
     cpp17dev.vm.network "private_network", ip: "192.168.60.157"
     cpp17dev.vm.provision "shell", :inline => "sudo echo '192.168.60.157 CPP17Dev.local CPP17Dev' >> /etc/hosts"
