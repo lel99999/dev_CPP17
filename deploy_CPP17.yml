@@ -9,29 +9,34 @@
   become_method: sudo
 
   pre_tasks:
-      shell: "/usr/bin/subscription-manager repos --list-enabled"
-      register: enabled_repos
-    - debug:
-        msg: "RHEL Enabled Repos: {{ enabled_repos }}"
+
   tasks:
 #   - name: Install X Windows
 #     yum:
 #       name: "@X Window System"
 #       state: present
 
-    - name: Install Development Tools
-#     shell:  yum groupinstall "Development Tools" -y
-      yum:
-        name: "@Development tools"
+    - name: Install QT 5.7.0 prerequisite build-essential
+      apt:
+        name: build-essential
         state: present
+        cache_valid_time: 1800
+
+    - name: Get QT
+      get_url:
+        url: http:/download/qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run -O /tmp/qt-opensource-linux-x64-5.7.0.run
+        dest: /tmp/qt-opensource-linux-x64-5.7.0.run
+        mode: '0755'
+#     shell: wget http:/download/qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run -O /tmp/qt-opensource-linux-x64-5.7.0.run
+
 #   - name: Install JAVA OpenJDK 1.8
 #     shell: yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel -y
 
   roles:
-    - epel7
+#   - epel7
 #   - emacs7
-    - openjdk1.8
-    - odbc7
+#   - openjdk1.8
+#   - odbc7
 #   - postgresql-client
 #   - devtools7
 #   - python2RH7
