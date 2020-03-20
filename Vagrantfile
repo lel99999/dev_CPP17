@@ -11,19 +11,19 @@ Vagrant.configure("2") do |config|
 #   trigger.run = { path:"subscription-manager register --username <username> --password <password> --auto-attach"}
 # end
 
-  config.vm.define "CPP17Dev" do |CPP17Dev|
-#   CPP17Dev.vm.box = "clouddood/RH7.5_baserepo"
-    CPP17Dev.vm.box = "bento/ubntu-19.04"
-    CPP17Dev.vm.hostname = "CPP17Dev"
-    CPP17Dev.vm.network "private_network", ip: "192.168.60.157"
-    CPP17Dev.vm.provision "shell", :inline => "sudo echo '192.168.60.157 CPP17Dev.local CPP17Dev' >> /etc/hosts"
+  config.vm.define "CPP17Dev" do |cpp17dev|
+#   cpp17dev.vm.box = "clouddood/RH7.5_baserepo"
+    cpp17dev.vm.box = "bento/ubntu-19.04"
+    cpp17dev.vm.hostname = "CPP17Dev"
+    cpp17dev.vm.network "private_network", ip: "192.168.60.157"
+    cpp17dev.vm.provision "shell", :inline => "sudo echo '192.168.60.157 CPP17Dev.local CPP17Dev' >> /etc/hosts"
 
 
 ##  Use Main / Update in Vagrant provision command ### $vagrant provision --provision-with shell/main/update
 
     # Default 
     # Main
-    CPP17Dev.vm.provision "main", type: "ansible" do |ansible|
+    cpp17dev.vm.provision "main", type: "ansible" do |ansible|
 #     ansible.playbook = "deploy_CPP17Config.yml"
 #     ansible.playbook = "deploy_CPP17Test.yml"
       ansible.playbook = "deploy_CPP17Test.yml"
@@ -34,14 +34,14 @@ Vagrant.configure("2") do |config|
       #ansible.limit = ansible_limit
     end
     # Update
-    CPP17Dev.vm.provision "update", type: "ansible" do |ansible|
-      ansible.playbook = "deploy_PythonPatchRH7.yml"
-      ansible.inventory_path = "vagrant_hosts"
-      #ansible.tags = ansible_tags
-      #ansible.verbose = ansible_verbosity
-      #ansible.extra_vars = ansible_extra_vars
-      #ansible.limit = ansible_limit
-    end
+#   cpp17dev.vm.provision "update", type: "ansible" do |ansible|
+#     ansible.playbook = "deploy_PythonPatchRH7.yml"
+#     ansible.inventory_path = "vagrant_hosts"
+#     #ansible.tags = ansible_tags
+#     #ansible.verbose = ansible_verbosity
+#     #ansible.extra_vars = ansible_extra_vars
+#     #ansible.limit = ansible_limit
+#   end
   end
 # config.trigger.before :destroy do |trigger|
 #   run "rm -Rf /tmp/abc/*"
