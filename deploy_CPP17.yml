@@ -11,10 +11,20 @@
   pre_tasks:
 
   tasks:
-#   - name: Install X Windows
-#     yum:
-#       name: "@X Window System"
-#       state: present
+    - name: Install Desktop Components (GUI)
+      apt:
+        name: 
+          - ubuntu-desktop # Untiy (default)
+#  shell: add-apt-repository ppa:kubuntu-ppa/backports
+#         - kubuntu-desktop # KDE
+#         - lubuntu-desktop # LXDE (Lubuntu) 
+#         - mate-desktop # MATE
+#         - ubuntu-gnome-desktop # GNOME
+#         - xubuntu-desktop # XFCE
+#  apt install xfce4 slim
+#  service slim start
+        state: present
+        force_apt_get: true
 
     - name: Install QT 5.14.x prerequisite build-essential
       apt:
