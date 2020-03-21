@@ -13,7 +13,6 @@
   tasks:
     - name: Get Updates
       apt:
-#       upgrade: dist
         update_cache: yes
         cache_valid_time: 3600
 
@@ -23,9 +22,9 @@
           - virtualbox-guest-utils
           - virtualbox-guest-dkms
           - virtualbox-guest-x11
-      state: present
-      force_apt_get: true
-      autoremove: true
+        state: present
+        force_apt_get: true
+        autoremove: true
 
     - name: Install Desktop Components (GUI)
       apt:
@@ -44,8 +43,8 @@
         force_apt_get: true
         autoremove: true
 
-    - name: Add ppa repository
-      shell: add-apt-repository ppa:jonathanf/gcc-7.1
+#   - name: Add ppa repository
+#     shell: add-apt-repository ppa:jonathonf/gcc-7.1
 
     - name: Install gcc/g++ 7.1
       apt:
